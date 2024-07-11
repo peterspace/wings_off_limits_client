@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { gameData } from "../constant";
+import Card from "../components/Card";
 
 const HomeDesktop = () => {
   const navigate = useNavigate();
@@ -23,6 +25,18 @@ const HomeDesktop = () => {
               <b className="relative">Wings off limits</b>
               <div className="self-stretch relative box-border h-px opacity-[0.8] border-t-[1px] border-solid border-gainsboro-200" />
             </div>
+            {/* <button className="cursor-pointer [border:none] p-0 bg-[transparent] flex flex-col items-start justify-end">
+              <div className="flex flex-row items-center justify-start gap-[10px]">
+                <img
+                  className="w-4 relative h-4 overflow-hidden shrink-0"
+                  alt=""
+                  src="/heroiconsoutlinechat.svg"
+                />
+                <div className="relative text-base font-medium font-poppins text-inactive text-left">
+                  Support
+                </div>
+              </div>
+            </button> */}
           </div>
         </div>
         <div className="self-stretch flex-1 overflow-hidden flex flex-col items-start justify-start px-0 text-5xl text-gray-400">
@@ -52,6 +66,20 @@ const HomeDesktop = () => {
                     />
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div className="h-screen overflow-y-auto w-full p-2">
+              <div className="grid xl:grid-cols-2 2xl:grid-cols-4 items-center justify-center gap-[20px] xl:gap-[20px]">
+                {gameData &&
+                  gameData.map((f, idx) => (
+                    <Card
+                      key={idx}
+                      src={f?.image}
+                      title={f?.title}
+                      number={idx + 1}
+                    />
+                  ))}
               </div>
             </div>
           </div>
